@@ -38,7 +38,7 @@ public class CardClearingController {
         return cardClearingService.updateCardClearing(id, cardClearing);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public void deleteCardClearing(@PathVariable("id") Long id) {
         cardClearingService.deleteCardClearing(id);
     }
