@@ -30,7 +30,7 @@ public class CardClearing {
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String countryCode;
 
     @Column(nullable = false)
