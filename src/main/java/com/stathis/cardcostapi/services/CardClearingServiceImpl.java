@@ -7,6 +7,7 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 
 @Service
 @AllArgsConstructor
@@ -37,8 +38,17 @@ public class CardClearingServiceImpl implements CardClearingService {
         } catch (RuntimeException ex) {
             throw new RuntimeException("Resource could not be updated: " + ex.getMessage());
         }
-        savedCardClearing.setCountryCode(cardClearing.getCountryCode());
-        savedCardClearing.setClearingCost(cardClearing.getClearingCost());
+
+        String countryCode = cardClearing.getCountryCode();
+        Double clearingCost = cardClearing.getClearingCost();
+
+        if (Objects.nonNull(countryCode)) {
+            savedCardClearing.setCountryCode(cardClearing.getCountryCode());
+        }
+        if (Objects.nonNull(clearingCost)) {
+            savedCardClearing.setClearingCost(cardClearing.getClearingCost());
+        }
+
         return saveCardClearing(savedCardClearing);
     }
 
