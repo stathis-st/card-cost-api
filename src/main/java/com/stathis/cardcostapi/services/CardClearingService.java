@@ -10,6 +10,8 @@ public interface CardClearingService {
 
     CardClearing getCardClearingById(Long id);
 
+    CardClearing getCardClearingByCountryCode(String countryCode);
+
     CardClearing saveCardClearing(CardClearing cardClearing);
 
     CardClearing updateCardClearing(Long id, CardClearing cardClearing);

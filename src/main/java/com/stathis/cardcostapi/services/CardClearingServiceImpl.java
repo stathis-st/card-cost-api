@@ -37,6 +37,11 @@ public class CardClearingServiceImpl implements CardClearingService {
     }
 
     @Override
+    public CardClearing getCardClearingByCountryCode(String countryCode) {
+        return cardClearingRepository.findCardClearingByCountryCode(countryCode);
+    }
+
+    @Override
     public CardClearing saveCardClearing(CardClearing cardClearing) {
         try {
             return cardClearingRepository.save(cardClearing);
