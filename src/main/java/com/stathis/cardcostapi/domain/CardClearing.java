@@ -9,22 +9,19 @@ import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.Hibernate;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.PositiveOrZero;
 import java.util.Objects;
 
-@Entity
 @Getter
 @Setter
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Entity
+@Table(indexes = @Index(columnList = "country_code"))
 public class CardClearing {
 
     @Id
@@ -32,7 +29,7 @@ public class CardClearing {
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private Long id;
 
-    @Column(nullable = false, unique = true)
+    @Column(name = "country_code", nullable = false, unique = true)
     @NotBlank(message = "Country code is mandatory")
     private String countryCode;
 
@@ -53,3 +50,6 @@ public class CardClearing {
         return getClass().hashCode();
     }
 }
+
+
+
