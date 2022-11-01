@@ -40,7 +40,7 @@ public class CardClearingController {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteCardClearing(@PathVariable("id") Long id) {
-        cardClearingService.deleteCardClearing(id);
+    public void deleteCardClearingById(@PathVariable("id") Long id) {
+        cardClearingService.deleteCardClearingById(id);
     }
 }

@@ -16,5 +16,5 @@ public interface CardClearingService {
 
     CardClearing updateCardClearing(Long id, CardClearing cardClearing);
 
-    void deleteCardClearing(Long id);
+    void deleteCardClearingById(Long id);
 }

@@ -77,7 +77,7 @@ public class CardClearingServiceImpl implements CardClearingService {
     }
 
     @Override
-    public void deleteCardClearing(Long id) {
+    public void deleteCardClearingById(Long id) {
         try {
             cardClearingRepository.deleteById(id);
         } catch (EmptyResultDataAccessException ex) {
