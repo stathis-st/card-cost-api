@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping(PaymentCardCostController.BASE_URL)
 @AllArgsConstructor
@@ -19,7 +21,7 @@ public class PaymentCardCostController {
     private final PaymentCardCostService paymentCardCostService;
 
     @PostMapping
-    public CardClearingCostResponse calculateCardClearingCost(@RequestBody CardClearingCostRequest cardClearingCostRequest) {
+    public CardClearingCostResponse calculateCardClearingCost(@RequestBody @Valid CardClearingCostRequest cardClearingCostRequest) {
         return paymentCardCostService.calculateCardClearingCost(cardClearingCostRequest);
     }
 }

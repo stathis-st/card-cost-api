@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -29,12 +30,12 @@ public class CardClearingController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public CardClearing saveCardClearing(@RequestBody CardClearing cardClearing) {
+    public CardClearing saveCardClearing(@RequestBody @Valid CardClearing cardClearing) {
         return cardClearingService.saveCardClearing(cardClearing);
     }
 
     @PutMapping("/{id}")
-    public CardClearing updateCardClearing(@PathVariable("id") Long id, @RequestBody CardClearing cardClearing) {
+    public CardClearing updateCardClearing(@PathVariable("id") Long id, @RequestBody @Valid CardClearing cardClearing) {
         return cardClearingService.updateCardClearing(id, cardClearing);
     }
 
